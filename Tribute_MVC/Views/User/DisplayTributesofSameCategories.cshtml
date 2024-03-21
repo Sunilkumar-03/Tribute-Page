@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Tribute_MVC.Models.Tribute>
+
+@{
+    ViewData["Title"] = "DisplayTributesofSameCategories";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/DisplayTributesofSameCategories.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+<style>
+    nav {
+        margin: 0px auto;
+        text-align: center;
+        position: relative;
+        z-index:2;
+    }
+
+        nav ul {
+            margin-left: 0;
+            padding-left: 0;
+            width: 500px;
+            list-style: none;
+            position: relative;
+            display: inline-table;
+            justify-content:flex-start;
+            background-color:white;
+        }
+
+            nav ul ul {
+                display: none;
+            }
+
+            nav ul li:hover > ul {
+                display: block;
+            }
+
+            nav ul li {
+                float: left;
+                width: 500px;
+                text-align: left;
+                border-bottom: 3px solid #2ecc71;
+            }
+
+                nav ul li:hover {
+                    background: #f2f2f2;
+                }
+
+                nav ul li a {
+                    display: block;
+                    padding: 15px 10px;
+                    color: #2a2a2a;
+                    text-decoration: none;
+                }
+
+            nav ul ul {
+                border-radius: 0px;
+                padding: 0;
+                position: absolute;
+                top: 100%;
+            }
+
+                nav ul ul li {
+                    float: none;
+                    border-bottom: 2px solid #eaeaea;
+                    position: relative;
+                }
+
+                    nav ul ul li a {
+                        padding: 15px 10px;
+                        color: #838383;
+                    }
+
+                        nav ul ul li a:hover {
+                            background: #22ABCD;
+                            color: #fff;
+                        }
+
+    #down-triangle {
+        float: right;
+        width: 0;
+        height: 0;
+        margin-top: 10px;
+        border-top: 10px solid #2ecc71;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+    }
+
+    .circle {
+        float: right;
+        display:block;
+        width: 10px;
+        height: 10px;
+        margin-top: 5px;
+        border: 3px solid #8ce5b2;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+    }
+</style>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+@if (Model != null)
+{
+<div>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Select Category<div id="down-triangle"></div></a>
+                <ul>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="1">Sports<div class="circle"></div></a></li>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="2">Science<div class="circle"></div></a></li>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="3">Politics<div class="circle"></div></a></li>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="4">Movies<div class="circle"></div></a></li>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="5">Military<div class="circle"></div></a></li>
+                    <li><a asp-action="DisplayTributesofSameCategories" asp-controller="User" asp-route-id="6">Awards<div class="circle"></div></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <section class="section bg-white" id="portfolio" style="padding-top: 50px; padding-bottom: 50px; padding-left: 120px;">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8 col-lg-7 text-center" style="height: 20px; margin-top: -35px; text-align: center; color: white; padding-right: 100px;">
+                    <h1>
+                        @ViewBag.CategoryName
+                    </h1>
+                    <br />
+                </div>
+
+                <div class="col1" style="display: flex!important;justify-content: start!important;margin-left: 20px!important;">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col" style="width: 20%!important;margin-right: 30px!important;">
+                            <div class="card1">
+                                <div class="overlay">
+                                    <img src="~/Layout/img/@item.ImageUrl" alt="@item.Name" class="detail" style="height:100%!important;width:100%!important">
+                                </div>
+                                <h5 class="product-name" style="margin-top: 260px!important;cursor:pointer;text-decoration: none!important;">@item.Name</h5>
+                                <a asp-action="ViewTributeDetails" asp-controller="User" asp-route-id="@item.TributeId" style="text-decoration: none!important; color: white!important;margin-top: -15px!important;">
+                                    <button style="cursor: pointer!important;box-shadow: 0 0px 10px 0px rgba(245,238,238,0.58)!important;">View Tribute</button>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="col-md-8 col-lg-7 text-center">
+        <h2 class="lg-title mb-2">
+            No Tributes Available
+        </h2>
+        <br />
+    </div>
+}
+

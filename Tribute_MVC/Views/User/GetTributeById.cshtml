@@ -1,0 +1,50 @@
+﻿@model Tribute_MVC.Models.Tribute
+
+@{
+    ViewData["Title"] = "GetTributeById";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/vendor/animate.css/animate.min.css" rel="stylesheet">
+<link href="~/vendor/aos/aos.css" rel="stylesheet">
+<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="~/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="~/details/css/style.css" rel="stylesheet">
+<section class="section bg-white" id="portfolio" style="padding-top:50px;padding-bottom:50px;padding-left:10px;">
+    <div class="col-lg-9" style="position: relative; width: 100%; padding-right: 15px; padding-left: 15px;">
+        <div class="main-content">
+            <div class="row align-items-center" style="padding-left:130px;width:1000px!important">
+                <div class="col-lg-6">
+                    <div style="margin-top:-100px" class="images-title pl-80 md-pl-15 md-mb-40">
+                        <img src="~/Layout/img/@Model.ImageUrl" alt="Course" style="width:360px!important;height:auto!important;">
+                    </div>
+                  
+                </div>
+                <div class="col-lg-6">
+                    <div class="sec-title3 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 300ms; animation-name: fadeInUp;">
+                        <h2 class="title" style="font-family:Nunito;color: #111111;margin: 0 0 26px;">@Model.Name</h2>
+                        <div class="desc mb-30">@Model.Abstract</div>
+                        <br />
+                        <div class="desc mb-30">@Model.Description</div>
+                        <div class="btn-part wow fadeInUp" data-wow-delay="400ms" data-wow-duration="2000ms" style="padding-top:50px;visibility: visible; animation-duration: 2000ms; animation-delay: 400ms; animation-name: fadeInUp;">
+                            <h5>RfferenceLink</h5>
+                            <p>@Model.RefferenceLink</p>
+                        </div>
+                    </div><br />
+                    <div class="form-group">
+                        <span class="test-danger" style="color:red"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

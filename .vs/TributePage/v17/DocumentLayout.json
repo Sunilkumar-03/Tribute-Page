@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|c:\\users\\sanib\\documents\\.net framework\\projects\\tribute_page_original\\tributepage\\tribute_mvc\\views\\admin\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|solutionrelative:tribute_mvc\\views\\admin\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|c:\\users\\sanib\\documents\\.net framework\\projects\\tribute_page_original\\tributepage\\tribute_mvc\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|solutionrelative:tribute_mvc\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|c:\\users\\sanib\\documents\\.net framework\\projects\\tribute_page_original\\tributepage\\tribute_mvc\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D32B707-4F5A-4BD7-9B44-C6F890053F90}|Tribute_MVC\\Tribute_MVC.csproj|solutionrelative:tribute_mvc\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDC1DE8-1C37-48D7-B1CB-22D9D921959F}|Tribute_API\\Tribute_API.csproj|c:\\users\\sanib\\documents\\.net framework\\projects\\tribute_page_original\\tributepage\\tribute_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2DDC1DE8-1C37-48D7-B1CB-22D9D921959F}|Tribute_API\\Tribute_API.csproj|solutionrelative:tribute_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Views\\Admin\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Tribute_MVC\\Views\\Admin\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Views\\Admin\\Profile.cshtml",
+              "RelativeToolTip": "Tribute_MVC\\Views\\Admin\\Profile.cshtml",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T05:08:08.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Tribute_MVC\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Tribute_MVC\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAA8DAAAAWGZmZmYewAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T05:07:33.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Tribute_MVC\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Tribute_MVC\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAOIBAAAA7P////8hwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T05:07:02.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_API\\appsettings.json",
+              "RelativeDocumentMoniker": "Tribute_API\\appsettings.json",
+              "ToolTip": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_API\\appsettings.json",
+              "RelativeToolTip": "Tribute_API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-21T05:01:25.668Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

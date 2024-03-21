@@ -1,0 +1,79 @@
+﻿@model Tribute_MVC.Models.Tribute
+
+@{
+    ViewData["Title"] = "EditTribute";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="~/css/AddTribute.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 style="color:rebeccapurple" class="title">Edit Tribute</h2>
+            </div>
+            <div class="card-body">
+                <form asp-action="EditTribute" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="name">Title</div>
+                        <div class="value">
+                            <input asp-for="Name" class="input--style-6 form-control" type="text" name="name" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Abstract</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <textarea asp-for="Abstract" maxlength="200" class="textarea--style-6 form-control" name="abstract" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Description</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <textarea asp-for="Description" maxlength="800" class="textarea--style-6 form-control" name="description" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Reffernce Link</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input asp-for="RefferenceLink" class="input--style-6 form-control" type="text" name="RefferenceLink" placeholder="google.com" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit</button>
+                    </div>
+                    <div class="form-group" hidden>
+                        <input asp-for="ImageUrl" class="input--style-6 form-control" type="text">
+                        <input asp-for="UserId" class="input--style-6 form-control" type="text">
+                        <input asp-for="TributeId" class="input--style-6 form-control" type="text">
+                        <input asp-for="Approval" class="input--style-6 form-control" type="text">
+                        <input asp-for="Status" class="input--style-6 form-control" type="text">
+                        <input asp-for="CategoryId" class="input--style-6 form-control" type="text">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/global.js"></script>
+
+</body>
+
+</html>
+

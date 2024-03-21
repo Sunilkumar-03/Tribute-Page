@@ -1,0 +1,107 @@
+﻿
+
+@model IEnumerable<Tribute_MVC.Models.TributeCategory>
+
+
+@{
+        ViewData["Title"] = "DisplayCategories";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+
+
+<head>
+    <link rel="stylesheet" href="~/css/GroupWiseTributes.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+
+</head>
+
+
+<div class="main-container">
+    <div class="grid">
+
+
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="1">
+                <div class="img"></div>
+                <div class="product-name"><span>Sports&nbsp;(@ViewBag.SportsCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Cricket.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="2">
+                <div class="img"></div>
+                <div class="product-name"><span>Scientists&nbsp;(@ViewBag.ScienceCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Scientists.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="3">
+                <div class="img"></div>
+                <div class="product-name"><span>Politics&nbsp;(@ViewBag.PoliticsCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Politics.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="4">
+                <div class="img"></div>
+                <div class="product-name"><span>Movies&nbsp;(@ViewBag.MoviesCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Movies.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="5">
+                <div class="img"></div>
+                <div class="product-name"><span>Army&nbsp;(@ViewBag.MilitaryCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Military.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+        <div class="card">
+            <a asp-action="DisplayTributesofSameCategories" asp-controller="Admin" asp-route-id="6">
+                <div class="img"></div>
+                <div class="product-name"><span>Awards&nbsp;(@ViewBag.AwardsCount)</span></div>
+                <div class="overlay">
+                    <img src="~/Groups/Awards.jpg" class="detail" style="height:100%!important;width:100%!important" />
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

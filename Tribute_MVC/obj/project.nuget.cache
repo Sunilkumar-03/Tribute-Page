@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DD0m+zbBAHFqF/gZoAB6u0HDfiSxfTgFF7LUS1vO8x0GFt49JaZBPSu2muZQuiHSnBU8V+aCT0bZ07zmFc6twA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sanib\\Documents\\.Net Framework\\Projects\\Tribute_Page_Original\\TributePage\\Tribute_MVC\\Tribute_MVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sanib\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

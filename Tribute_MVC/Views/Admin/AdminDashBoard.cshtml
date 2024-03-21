@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "AdminDashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/css/Dashboard.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+@*sider*@
+
+
+<div class="container" style="width: 100%!important;margin-top: 20px!important;height: 100vh!important;">
+    <div class="col-div-3">
+        <a asp-action="ViewAllTributes" asp-controller="Admin">
+            <div class="box">
+                <p>@ViewBag.TributesCount<br /><span>Tributes</span></p>
+                <i class="fa fa-list box-icon"></i>
+            </div>
+        </a>
+    </div>
+    <div class="col-div-3">
+        <a asp-action="DisplayCategories" asp-controller="Admin">
+            <div class="box">
+                <p>@ViewBag.CategoriesCount<br /><span>Groups</span></p>
+                <i class="fa fa-th box-icon"></i>
+            </div>
+        </a>
+    </div>
+    <div class="col-div-3">
+        <a asp-action="ViewAllActiveUsers" asp-controller="Admin">
+            <div class="box">
+                <p>@ViewBag.UsersCount<br /><span>Users</span></p>
+                <i class="fas fa-users box-icon"></i>
+            </div>
+        </a>
+    </div>
+    <div class="col-div-3">
+        <a asp-action="ViewAllPendingTributes" asp-controller="Admin">
+        <div class="box">
+            <p>@ViewBag.Tasks<br /><span>Tasks</span></p>
+            <i class="fas fa-tasks box-icon"></i>
+        </div>
+            </a>
+    </div>
+</div>
+

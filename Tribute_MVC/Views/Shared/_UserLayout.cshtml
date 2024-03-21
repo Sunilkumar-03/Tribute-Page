@@ -1,0 +1,152 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@{    var name = Context.Session.GetString("UserName").ToString();
+    var image = Context.Session.GetString("ImageUrl").ToString();}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
+    @*@Styles.Render("~/wwwroot/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <link href="~/css/Layout.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+            /* background-color: #04AA6D;
+
+            padding: 16px;
+            font-size: 16px;*/
+            border: none;
+            color: white;
+            margin-right: 55px;
+            margin-top: 34px;
+        }
+
+        .dropdown {
+            margin-top: -80px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 28px;
+            color: white;
+            font-weight: bold;
+            /*position: absolute;*/
+            background-color: #2b2b2b;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content .box-icon {
+                font-size: 20px !important;
+                float: left;
+                margin-top: 35px !important;
+                color: white;
+                padding-right: 10px;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                border-radius: 25px;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #564f4f4a;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #564f4f4a;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="check" style="display:none!important" />
+    <header>
+        <label for="check" style="display: inline-block!important;">
+            <i class="fas fa-compress fa-3x" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <h1>T-<span>Alpha</span></h1>
+            <div class="col-div-12">
+                <img src="~/Layout/Users/@image" style="border-radius: 100%;float: right;width: 40px;margin-top: -58px;margin-right: 38px; cursor: pointer;" />
+                <div class="dropdown">
+                    <p class="dropbtn">
+                        Hello&nbsp;@name@*<br /><span style="font-weight: 400; font-size: 12px; display: block; color: #8e8b8b; cursor: pointer;">Team Alpha</span></p>*@
+                        <div class="dropdown-content">
+                            <a asp-action="Profile" asp-controller="User"><i class="fas fa-user" aria-hidden="true" style="padding-right: 10px!important;"></i><span style="color:white!important">Profile</span></a>
+                            <a asp-action="LogOff" asp-controller="Admin"><i class="fas fa-sign-out-alt" aria-hidden="true" style="padding-right: 10px!important;"></i><span style="color:white!important">Logout</span></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="right_area">
+                <li class="nav-item">
+                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                        <img src="~/Images/User3.jpg" alt="" style="width: 40px; border-radius: 100px;float: right;margin-right:20px;margin-top: -36px;" />
+                        <span class="logout_btn" style="margin-right: 10px!important;">Admin</span>
+
+                    </a>
+                    <ul role="menu" class="dropdown-header-top dropdown-menu animated zoomIn" style="margin-left: 1173px!important; margin-top: -10px!important;background: #2b2b2b!important;border: 1px solid!important;border-color: white!important;">
+
+                        <li>
+                            <a href="#" style=" color: white!important;background: transparent!important;"> <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; <span>Profile</span></a>
+                        </li>
+                        <li>
+                            <a href="#" style=" color: white!important;background: transparent!important;"> <i class="fas fa-cogs"></i>&nbsp; <span>Setting</span></a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Login", "Account")" style="color: white!important; background: transparent!important;"> <i class="fas fa-sign-out-alt"></i>&nbsp; <span>Logout</span></a>
+                        </li>
+                    </ul>
+                </li>
+            </div>*@
+    </header>
+    <div class="sidebar">
+        <center>
+            <img src="~/Layout/Users/@image" class="profile_image" alt="" />
+            <h4>@name</h4>
+
+        </center>
+        <a asp-action="UserDashboard" asp-controller="User">
+            <i class="fa fa-desktop" aria-hidden="true"></i><span>Dashboard</span>
+        </a>
+        <a asp-action="DisplayCategories" asp-controller="User"><i class="fa fa-th" aria-hidden="true"></i><span>Tribute Groups</span></a>
+        <a asp-action="ViewAllTributes" asp-controller="User"><i class="fa fa-th" aria-hidden="true"></i><span>Tributes</span></a>
+        <a asp-action="AddTribute" asp-controller="User"><i class="fas fa-plus-circle" aria-hidden="true"></i><span>Post Tribute</span></a>
+        <a asp-action="Search" asp-controller="User"><i class="fas fa-search-plus" aria-hidden="true"></i><span>Search Tribute</span></a>
+        <a asp-action="DisplayUser" asp-controller="User"><i class="fa fa-users" aria-hidden="true"></i><span>Profile</span></a>
+        <a asp-action="GetTributeByUser" asp-controller="User"><i class="fas fa-history" aria-hidden="true"></i><span>View History</span></a>
+    </div>
+
+    <div class="content">
+
+        @RenderBody()
+
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
+
+
+@*----------------------------------------------*@

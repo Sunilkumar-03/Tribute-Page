@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_beforeLogin";
+}
+
+<div id="LoginUser">
+    <form asp-action="Login" asp-controller="Admin" id="login" method="post" class="input-group">
+        <input type="text" class="input-field" id="Email" name="email" placeholder="Email" required>
+        <input type="password" class="input-field" id="Password" name="password" placeholder="Password" required>
+        <button type="submit" class="submit-btn">Login</button>
+    </form>
+    <span style="color:red" class="text-danger">@ViewBag.Error</span>
+</div>

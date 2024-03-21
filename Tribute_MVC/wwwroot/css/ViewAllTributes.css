@@ -1,0 +1,164 @@
+﻿
+
+
+body {
+    justify-content: center;
+    align-items: center;
+    background: #111;
+}
+
+.grid {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-around;
+    padding-left: 2%;
+    padding-right: 25px;
+    color: #fff;
+    background: #111;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 3px;
+    
+    height: 195px;
+    margin: 30px 0 30px;
+    box-shadow: 0 2px 15px 0px rgba(245,238,238,0.58);
+    /*margin-left:200px;
+    margin-top:40px*/
+}
+
+.card1 {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 3px;
+    width: 100%;
+    height: 195px;
+    margin: 30px 0 30px;
+    box-shadow: 0 2px 15px 0px rgba(245,238,238,0.58);
+    /*margin-left:200px;
+    margin-top:40px*/
+}
+
+.card:hover .overlay {
+    /* opacity: 1;*/
+    transform: scale(0.9);
+}
+
+.card1:hover .overlay {
+    /* opacity: 1;*/
+    transform: scale(0.9);
+}
+
+.number {
+    z-index: 6;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: -webkit-box;
+    display: flex;
+    background: #f7f1f2ab;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-shadow: 0 3px 7px 1px rgba(8,8,8,1);
+}
+
+    .number > span {
+        color: black;
+        font-weight: bold;
+    }
+
+.overlay {
+    /* opacity: 0;*/
+    background: #ff2c55;
+    background: -webkit-gradient(linear, left top, right top, from (rgba(6,5,5,0.44)),to (rgba(199,178,174,0.65)));
+    background: linear-gradient(90deg,rgba(6,5,5,0.44),rgba(199,178,174,0.65));
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 200ms;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.img {
+    height: 50%;
+    width: 80%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+    .img img {
+        width: 160px;
+        height: 130px;
+    }
+
+.product-name {
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #fdfbfb;
+    margin-top: 100px;
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+.detail > span {
+    cursor: pointer;
+}
+
+    .detail > span:nth-child(1) {
+        width: 80%;
+        height: 20%;
+        background-color: transparent;
+        padding: 10px 40px;
+        border-radius: 50px;
+        border: 3px solid #0e0e0eab;
+        color: white;
+    }
+
+    .detail > span:nth-child(2) {
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 19px;
+    }

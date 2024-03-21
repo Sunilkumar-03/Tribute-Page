@@ -1,0 +1,106 @@
+﻿@model Tribute_MVC.Models.User
+
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="~/css/AddTribute.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 style="color:rebeccapurple" class="title">ADD</h2>
+            </div>
+            <div class="card-body">
+                <div>
+                    <span style="color:red" class="text-danger">@ViewBag.Error</span>
+                    <span style="color:green" class="text-success">@ViewBag.Success</span>
+                </div>
+
+                <form asp-action="AddUser" method="post" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="name">Name</div>
+                        <div class="value">
+                            <input asp-for="UserName" class="input--style-6 form-control" type="text" name="UserName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Email</div>
+                        <div class="value">
+                            <input asp-for="Email" class="input--style-6 form-control" type="email" name="Email" maxlength="40" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Mobile</div>
+                        <div class="value">
+                            <input asp-for="Mobile" class="input--style-6 form-control" type="tel" name="Mobile" pattern="[0-9]{10}" title="Mobile Number must be of 10 digits" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Role</div>
+                        <div class="value">
+                            <select asp-for="Role" name="Role" id="roles">
+                                <option selected disabled>--- Select Roles ---</option>
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn--radius-2 btn--blue-2" type="submit">ADD</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var check = function () {
+            if (document.getElementById('password').value ==
+                document.getElementById('ConfirmPassword').value) {
+                //document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = '';
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'not matching';
+            }
+        }
+    </script>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/global.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Tribute_MVC.Models.Tribute>
+
+@{
+    ViewData["Title"] = "ViewAllTributes";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    IEnumerable<Tribute> Suggestions = ViewData["Suggestions"] as IEnumerable<Tribute>;
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/ViewAllTributes.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+@if (Model.Count() > 0)
+{
+
+    @*<section class="section bg-white" id="portfolio" style="padding-top:50px;padding-bottom:50px;padding-left:10px;">
+        <div class="container">
+            <div class="row justify-content-center mb-4">*@
+    <div class="col-md-8 col-lg-7 text-center" style="height: 20px; text-align: center; color:white">
+        <h1>
+            Your Tributes
+        </h1>
+        <br />
+    </div>
+    <div class="main-container" style="padding-top:60px">
+        <div class="grid">
+            @foreach (var item in Model)
+            {
+                <div class="col" style="width: 20%!important;margin-right: 30px!important;">
+                    <div class="card">
+                        <div class="overlay">
+                            <img src="~/Layout/img/@item.ImageUrl" alt="@item.Name" class="detail" style="height:100%!important;width:100%!important">
+                        </div><h5 class="product-name" style="margin-top: 260px!important;cursor:pointer;text-decoration: none!important;">@item.Name</h5>
+                        <a asp-action="ViewTributeDetails" asp-controller="User" asp-route-id="@item.TributeId" style="text-decoration: none!important; color: white!important;margin-top: -15px!important;">
+                            <button style="cursor: pointer!important;box-shadow: 0 0px 10px 0px rgba(245,238,238,0.58)!important;">View Tribute</button>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @*</div>
+        </section>*@
+}
+else
+{
+    <div class="col-md-8 col-lg-7 text-center" style="height: 20px; text-align: center; color:white">
+        <h1>
+            You Haven't posted any Tributes till Now<br />
+            Refer following Tributes and Create Your Own
+        </h1>
+        <br />
+    </div>
+    <div class="main-container" style="padding-top:60px"> 
+        <div class="grid">
+            @foreach (Tribute tribute in Suggestions)
+            {
+                <div class="col" style="width: 20%!important;margin-right: 30px!important;">
+                    <div class="card">
+                        <div class="overlay">
+                            <img src="~/Layout/img/@tribute.ImageUrl" alt="@tribute.Name" class="detail" style="height:100%!important;width:100%!important">
+                        </div><h5 class="product-name" style="margin-top: 260px!important;cursor:pointer;text-decoration: none!important;">@tribute.Name</h5>
+                        <a asp-action="ViewTributeDetails" asp-controller="User" asp-route-id="@tribute.TributeId" style="text-decoration: none!important; color: white!important;margin-top: -15px!important;">
+                            <button style="cursor: pointer!important;box-shadow: 0 0px 10px 0px rgba(245,238,238,0.58)!important;">View Tribute</button>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+

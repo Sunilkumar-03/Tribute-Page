@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Tribute_MVC.Models.TributeLogModel>
+
+@{
+    ViewData["Title"] = "ViewHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tribute</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Table/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Table/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    @if (Model != null)
+    {
+        <div class="limiter" style="padding-bottom:600px;padding-right:100px;position:fixed">
+            <div class="container-table100">
+                <div class="wrap-table100" style="padding-bottom:400px">
+                    <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">#</th>
+                                        <th class="cell100 column2">User</th>
+                                        <th class="cell100 column3">Tribute</th>
+                                        <th class="cell100 column4">Date</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                        <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="row100 body">
+                                            <td class="cell100 column1">@count</td>
+                                            <td class="cell100 column2">@Html.DisplayFor(modelItem => item.UserName)</td>
+                                            <td class="cell100 column3">@Html.DisplayFor(modelItem => item.TributeName)</td>
+                                            <td class="cell100 column4">@Html.DisplayFor(modelItem => item.dateTime)</td>
+                                        </tr>
+                                        {
+                                            count = count + 1;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+            else
+            {
+                <h2 style="align-content:center">No Record Availble right Now..!</h2>
+            }
+</body>
+</html>
+
+
+
+
+
+
+
+
+

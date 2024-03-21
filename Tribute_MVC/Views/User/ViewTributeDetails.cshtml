@@ -1,0 +1,327 @@
+﻿@model Tribute_MVC.Models.Tribute
+@using Microsoft.AspNetCore.Http;
+
+
+@{
+    ViewData["Title"] = "ViewTributeDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var Id = Context.Session.GetInt32("UserId");
+    IEnumerable<TributeLogModel> Comments = ViewData["Comments"] as IEnumerable<TributeLogModel>;
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .detail-page {
+        background-color: #111;
+        /*background-image: linear-gradient( 135deg, rgb(24, 42, 115) 0%, rgb(33, 138, 174) 69%, rgb(32, 167, 172) 89% ) !important;*/
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #TributorImage {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        border-radius: 50%;
+    }
+
+    .Bio {
+        margin-left: 20px;
+        margin-right: 20px;
+        border: none;
+    }
+
+    p {
+        color: white;
+        font-family: sans-serif;
+    }
+
+    h3 {
+        margin: 1em 0 0.5em 0;
+        color: white;
+        font-size: 22px;
+        line-height: 40px;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-family: 'Orienta', sans-serif;
+        letter-spacing: 1px;
+        font-style: normal;
+    }
+
+    User_profile {
+        float: left;
+        width: 20%;
+        margin-top: 6px;
+    }
+
+    .Comment_List {
+        float: left;
+        width: 80%;
+        margin-top: 6px;
+    }
+
+    .Comment_Box {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #userImage {
+        width: 70px;
+        border-radius: 50%;
+    }
+
+    span {
+        font-family: sans-serif;
+        color: gray;
+    }
+
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        margin-bottom: 40px;
+        resize: none;
+    }
+
+    #btnSend {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        margin-left: 5px;
+    }
+
+    #btnCancel {
+        background-color: red;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    #btnEdit {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .center {
+        width: auto;
+        margin-top: 20px;
+        height: auto;
+        background-color: white;
+        border: 1px solid #000;
+    }
+
+    .rating_img {
+        width: 100px;
+        padding: 5px;
+        height: 100px;
+        /* position: relative; */
+        border-radius: 59px;
+    }
+
+    .rating_label {
+        position: relative;
+        top: -85px;
+        margin-left: 127px;
+    }
+
+    #spUserName {
+        position: relative;
+        margin-left: 15px;
+        margin-top: 10px;
+        top: -90px;
+    }
+
+    div.stars {
+        width: auto;
+        position: relative;
+        top: -80px;
+        margin-left: 113px;
+        display: inline-block;
+    }
+
+    input.star {
+        display: none;
+    }
+
+    label.star {
+        float: right;
+        padding: 10px;
+        font-size: 25px;
+        color: #444;
+        transition: all .2s;
+    }
+
+    input.star:checked ~ label.star:before {
+        content: '\f005';
+        color: #FD4;
+        transition: all .25s;
+    }
+
+    input.star-5:checked ~ label.star:before {
+        color: #FE7;
+        text-shadow: 0 0 20px #952;
+    }
+
+    input.star-1:checked ~ label.star:before {
+        color: #F62;
+    }
+
+    label.star:hover {
+        transform: rotate(-15deg) scale(1.3);
+    }
+
+    label.star:before {
+        content: '\f006';
+        font-family: FontAwesome;
+    }
+
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+            .rate:not(:checked) > label:before {
+                content: '★ ';
+            }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+</style>
+
+<div class="detail-page">
+
+    <span style="color:white; float:right">Posted By: <strong>@ViewBag.Author</strong></span>
+    <h2 style="color:greenyellow;">@Model.Name</h2>
+    <br />
+    <hr />
+    @if (Model.UserId == Id)
+    {
+        <button type="button" onclick="location.href = '@Url.Action("EditTribute","User",new { id = Model.TributeId })'" id="btnEdit">Edit</button>
+    }
+    <img src="~/Layout/img/@Model.ImageUrl" alt="APJ" id="TributorImage" />
+    <div class="Bio">
+        <div class="container_description">
+
+            <h3>Short Description:</h3>
+            <p>@Model.Abstract</p>
+
+            <h3>About :</h3>
+
+            <p>@Model.Description</p><br>
+
+            <h3>Reference Information:</h3>
+            <p><a href="@Model.RefferenceLink" target="_blank">Click For more information</a></p><br>
+        </div>
+        @*<button id="btnComment">Comment</button>*@
+
+        <div class="Commemt_Section">
+            <div class="Comment_Box">
+                <form asp-action="AddFeedback" asp-controller="User" method="Post">
+                    <div>
+                        <input type="text" value=@Model.TributeId name="id" hidden />
+                    </div>
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+
+                    <textarea name="comment" id="txtComment" maxlength="50" title="Can't enter more than 50 words" placeholder="Share your view..." required></textarea>
+                    <div class="button">
+                        <input type="submit" id="btnSend" value="Submit">
+                        <input type="reset" id="btnCancel" value="Clear">
+                    </div>
+                </form>
+            </div>
+
+            <br /><br />
+            @if (Comments is null)
+            {
+                <div class="center">
+                    <span style="color:blue"><b>No Commnets Available...<br />Be the first to Comment.!</b></span>
+                </div>
+            }
+            else
+            {
+                @foreach (TributeLogModel tribute in Comments)
+                {
+                    <div class="center">
+                        <img class="rating_img" src="~/Layout/Users/avatar7.png">
+                        <span id="spUserName">@tribute.UserName</span>
+                        <p class="rating_label" style="color: black;">@tribute.Comment</p>
+                        <div class="stars">
+                            @for (int i = 1; i <= tribute.Rating; i++)
+                            {
+                                <span style="color:orange" class="fa fa-star checked"></span>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+

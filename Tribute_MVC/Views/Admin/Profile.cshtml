@@ -1,0 +1,105 @@
+﻿@model Tribute_MVC.Models.DataViewModel.UserDataView
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="~/vendor/default/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/vendor/default/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/vendor/default/css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="~/vendor/default/css/main.css">
+    <link rel="stylesheet" href="~/vendor/default/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/global/toastr/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css" />
+</head>
+<body>
+    <section class="user-dashboard-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="user-dashboard-box">
+                        <div class="user-dashboard-content">
+                            <div class="content-title-box">
+                                <div class="title">Profile</div>
+                                <div class="subtitle">View and Update.</div>
+                            </div>
+                            <form action="Profile" method="post" enctype="multipart/form-data">
+                                <div class="content-box">
+                                    <div class="basic-group">
+                                        <div class="form-group" hidden>
+                                            <label asp-for="UserId" class="control-label"></label>
+                                            <input asp-for="UserId" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="FristName">Name :</label>
+                                            <input asp-for="UserName" class="form-control" readonly />
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Email" class="control-label"></label>
+                                            <input asp-for="Email" class="form-control" readonly />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Password" class="control-label"></label>
+                                            <input asp-for="Password" class="form-control" id="id_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,14}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 and at most 14" required />
+                                            <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; position: absolute; margin-bottom: 90px; cursor: pointer; left: 200px; top: 350px; padding-left: 470px; "></i>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Mobile" class="control-label"></label>
+                                            <input asp-for="Mobile" class="form-control" pattern="[0-9]{10}" title="Mobile Number must be of 10 digits" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <input asp-for="ImageUrl" class="form-control" />
+                                        </div>
+                                        <div class="form-group" hidden>
+                                            <input asp-for="Status" class="form-control" />
+                                        </div>
+                                        <div class="form-group" hidden>
+                                            <input asp-for="Role" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-update-box">
+                                    <button type="submit" class="btn">Save</button>
+                                </div>
+                            </form>
+                            <div class="form-group">
+                                <span class="text-danger">@ViewBag.Error</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="text-success">@ViewBag.Success</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+ <script>
+     const togglePassword = document.querySelector('#togglePassword');
+     const password = document.querySelector('#id_password');
+
+     togglePassword.addEventListener('click', function (e) {
+         // toggle the type attribute
+         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+         password.setAttribute('type', type);
+         // toggle the eye slash icon
+         this.classList.toggle('fa-eye-slash');
+     });
+ </script>
+
+
